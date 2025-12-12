@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Cá Nhân - Dự Án 1</title>
+    <!-- Sử dụng Font Awesome cho các icon mạng xã hội -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font chữ Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS Tự Thiết Kế (Đáp ứng yêu cầu 3.0 điểm CSS) --- */
+        
+        :root {
+            /* THAY ĐỔI: Đổi sang tông màu HỒNG */
+            --primary-color: #e84393; /* Màu hồng đậm chủ đạo */
+            --secondary-color: #fd79a8; /* Màu hồng phấn phụ trợ */
+            --text-color: #2d3436;
+            --bg-color: #fff0f6; /* Nền màu hồng rất nhạt (Lavender Blush) */
+            --white: #ffffff;
+            --gray: #636e72;
+            --shadow: 0 4px 6px rgba(232, 67, 147, 0.2); /* Đổ bóng màu hồng nhẹ */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden; /* Ngăn thanh cuộn ngang do hiệu ứng */
+            position: relative;
+        }
+
+        /* --- 1. Phần Giới Thiệu Chung (Hero Section) --- */
+        header {
+            /* Gradient hồng */
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2; /* Đảm bảo header nổi lên trên hiệu ứng nền */
+        }
+
+        .avatar-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid rgba(255, 255, 255, 0.5);
+            background-color: #fff;
+        }
+
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .slogan {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        /* --- Container chung cho các phần nội dung --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2; /* Nội dung nổi lên trên hiệu ứng */
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- 2. Phần Giới Thiệu Bản Thân --- */
+        .about-content {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border: 1px solid #ffeaa7; /* Viền nhẹ tạo điểm nhấn */
+        }
+
+        .info-group h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-group p, .info-group ul {
+            margin-left: 30px;
+            color: var(--gray);
+        }
+
+        .info-group ul {
+            list-style-type: none;
+        }
+
+        .info-group ul li::before {
+            content: '🌸'; /* Thay dấu chấm tròn bằng icon hoa cho hợp tone hồng */
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1.5em;
+            margin-left: -1.5em;
+        }
+
+        /* --- 3. Phần Sản Phẩm / Hoạt Động (3 mục) --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            height: 200px;
+            background-color: #fab1a0; /* Màu nền placeholder ấm áp hơn */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 3rem;
+            position: relative;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: var(--primary-color); /* Tag màu hồng đậm */
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* --- 4. Footer --- */
+        footer {
+            background-color: #2d3436;
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+            border-top: 5px solid var(--secondary-color);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content h3 {
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 2rem; /* Tăng kích thước icon lên một chút */
+            margin: 0 15px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+            transform: scale(1.2); /* Hiệu ứng phóng to khi di chuột vào */
+        }
+
+        .email-contact {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: #b2bec3;
+            border-top: 1px solid #636e72;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        /* --- CSS CHO HIỆU ỨNG TRÔI NỔI (Floating Effect) --- */
+        #floating-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Để không chặn click chuột vào nội dung */
+            z-index: 0; /* Nằm dưới nội dung chính */
+            overflow: hidden;
+        }
+
+        .floating-item {
+            position: absolute;
+            bottom: -50px; /* Bắt đầu từ dưới màn hình */
+            animation: floatUp linear forwards;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(360deg); /* Bay quá chiều cao màn hình */
+                opacity: 0;
+            }
+        }
+
+        /* Responsive cho Mobile */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .about-content { padding: 20px; }
+            .project-image { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Container chứa hiệu ứng tim/sao -->
+    <div id="floating-container"></div>
+
+    <!-- 1. HEADER: Ảnh đại diện, Tên, Khẩu hiệu -->
+    <header>
+        <div class="container">
+            <div class="avatar-container">
+                <!-- Thay link ảnh của bạn vào src bên dưới -->
+                <img src="phamkimnganphoto.jpg" alt="Ảnh đại diện">
+            </div>
+            <h1>Phạm Kim Ngân</h1>
+            <p class="slogan">"Học tập hết mình, Sống đam mê"</p>
+        </div>
+    </header>
+
+    <!-- 2. GIỚI THIỆU: Học vấn, Sở thích -->
+    <section id="about" class="container">
+        <h2 class="section-title">Giới Thiệu</h2>
+        <div class="about-content">
+            <div class="info-group">
+                <h3><i class="fas fa-graduation-cap"></i> Học Vấn</h3>
+                <p><strong>Trường:</strong> THCS-THPT Minh Hòa</p>
+                <p><strong>Lớp:</strong> 12a1</p>
+                <p><strong>Mục tiêu:</strong> Mở được cửa hàng phi lợi nhuận, giúp đỡ nhiều người khó khăn  .</p>
+            </div>
+            
+            <div class="info-group">
+                <h3><i class="fas fa-heart"></i> Sở Thích</h3>
+                <ul>
+                    <li>Chụp ảnh.</li>
+                    <li>Xem phim hoạt hình.</li>
+                    <li>Nghe nhạc: Pop, Indie.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SẢN PHẨM / HOẠT ĐỘNG: Liệt kê 3 hoạt động -->
+    <section id="portfolio" class="container">
+        <h2 class="section-title">Hoạt Động Nổi Bật</h2>
+        <div class="projects-grid">
+            
+            <!-- Hoạt động 1 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <!-- Placeholder icon nếu chưa có ảnh -->
+                    <i class="fas fa-code"></i>
+                    <!-- <img src="link-anh-du-an-1.jpg" alt="Dự án Web"> -->
+                </div>
+                <div class="project-info">
+                    <h3>Part-time job</h3>
+                    <p>Kiếm được tiền từ phân tích biểu đồ crypto.Cung cấp thu nhập để chi tiêu vào việc học</p>
+                </div>
+            </div>
+
+            <!-- Hoạt động 2 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Đọc sách</h3>
+                    <p>Thành viên tích cực của CLB Sách trường. Mỗi tháng đọc ít nhất 1 quyển sách.</p>
+                </div>
+            </div>
+
+            <!-- Hoạt động 3 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <div class="project-info">
+                    <h3>Học tập</h3>
+                    <p>Luôn cố gắng trong học tập, làm việc nhóm hiệu quả, đạt được những điểm số đúng năng lực.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. FOOTER: Email, Liên kết mạng xã hội -->
+    <footer>
+        <div class="container footer-content">
+            <h3>Liên Hệ Với Mình</h3>
+            
+            <p class="email-contact">
+                <i class="fas fa-envelope"></i> pkn100308@gmail.com
+            </p>
+
+            <div class="social-links">
+                <!-- THAY ĐỔI: Đã cập nhật href thành link ví dụ và thêm target="_blank" để mở tab mới -->
+                <!-- Bạn hãy thay link bên dưới bằng link trang cá nhân thật của bạn nhé -->
+                <a href="https://www.facebook.com/share/19ZpCdF8bz/?mibextid=wwXIfr" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/_phkngan.103/?__pwa=1" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                
+            </div>
+
+            <p class="copyright">© 2025 Phạm Kim Ngân. Designed by Me.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT TẠO HIỆU ỨNG TIM/SAO BAY -->
+    <script>
+        function createFloatingItem() {
+            const container = document.getElementById('floating-container');
+            const item = document.createElement('div');
+            
+            // Danh sách các icon sẽ bay lên (Tim, Sao, Lấp lánh)
+            const icons = ['❤️', '💖', '💗', '⭐', '✨', '🌸'];
+            
+            // Chọn ngẫu nhiên 1 icon
+            item.innerText = icons[Math.floor(Math.random() * icons.length)];
+            
+            item.classList.add('floating-item');
+            
+            // Vị trí ngang ngẫu nhiên (0% - 100% chiều rộng màn hình)
+            item.style.left = Math.random() * 100 + 'vw';
+            
+            // Kích thước ngẫu nhiên
+            const size = Math.random() * 20 + 10 + 'px'; // 10px đến 30px
+            item.style.fontSize = size;
+            
+            // Thời gian bay ngẫu nhiên (3s - 8s)
+            const duration = Math.random() * 5 + 3 + 's';
+            item.style.animationDuration = duration;
+            
+            container.appendChild(item);
+            
+            // Xóa phần tử sau khi bay xong để tránh nặng máy
+            setTimeout(() => {
+                item.remove();
+            }, 8000); // Khớp với thời gian bay tối đa
+        }
+
+        // Tạo item mới mỗi 300ms
+        setInterval(createFloatingItem, 300);
+    </script>
+</body>
+</html>
